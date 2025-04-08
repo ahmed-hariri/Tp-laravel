@@ -8,5 +8,6 @@
         <h2>{{ $article['name'] }}</h2>
         <p>{{ $article['description'] }}</p>
     </div>
+    <h1>{{$id}}</h1>
 @endforeach
 @endsection

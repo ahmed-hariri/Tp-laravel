@@ -22,7 +22,7 @@ Route::get('/blog', function () {
     return view('blog');
 })->name("blog");
 
-Route::get('/articles/{id?}', function ($id) {
+Route::get('/articles/{id?}', function ($id = 0) {
     $articles = [
         1 => [
             'id' => 1,
@@ -42,7 +42,7 @@ Route::get('/articles/{id?}', function ($id) {
     ];
 
     return view('articles.index', [
-        'articles' => $articles
-      
+        'articles' => $articles,
+        'id' => $id
     ]);
 })->name("articls");
