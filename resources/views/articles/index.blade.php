@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             @foreach ($articles as $article)
-            @if (!$id || $article['id'] == $id)
+            @if (!isset($id) || $article['id'] == $id)
                 <tr style="text-align: center">
                     <td>{{ $article['id'] }}</td>
                     <td>
@@ -25,14 +25,14 @@
                     <td>{{ $article['description'] }}</td>
                     <td style="display: flex; gap: 10px">
                         <a href="">Modify</a>
-                        <a href="">Delete</a>
+                        <a href="{{ route('remove-article', ['id' => $article['id']]) }}">Delete</a>
                     </td>
                 </tr>
             @endif
         @endforeach
         </tbody>
     </table>
-    <a href="">
+    <a href="{{route('create')}}">
         Create Article
     </a>
 @endsection
