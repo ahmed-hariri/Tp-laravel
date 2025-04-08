@@ -9,18 +9,30 @@
                 <th>ID</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($articles as $article)
             @if (!$id || $article['id'] == $id)
-                <tr>
+                <tr style="text-align: center">
                     <td>{{ $article['id'] }}</td>
-                    <td>{{ $article['name'] }}</td>
+                    <td>
+                        <a href="{{ route('articls', ['id' => $article['id']]) }}">
+                            {{ $article['name'] }}
+                        </a>
+                    </td>
                     <td>{{ $article['description'] }}</td>
+                    <td style="display: flex; gap: 10px">
+                        <a href="">Modify</a>
+                        <a href="">Delete</a>
+                    </td>
                 </tr>
             @endif
         @endforeach
         </tbody>
     </table>
+    <a href="">
+        Create Article
+    </a>
 @endsection
